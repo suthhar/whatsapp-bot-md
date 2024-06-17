@@ -9,12 +9,12 @@ const DATABASE_URL =
   process.env.DATABASE_URL === undefined ? databasePath : process.env.DATABASE_URL
 module.exports = {
   VERSION: require('./package.json').version,
-  SESSION_ID: (process.env.SESSION_ID || '').trim(),
+  SESSION_ID: (process.env.SESSION_ID || 'Tejas').trim(),
   DATABASE:
     DATABASE_URL === databasePath
       ? new Sequelize({
           dialect: 'sqlite',
-          storage: DATABASE_URL,
+          storage: postgres://levanter:c0A9sUoHwKL215ZUCRaSWSLXFrfHBOss@dpg-cpm0h9iju9rs73flbffg-a.singapore-postgres.render.com/levanter_yf4p,
           logging: false,
         })
       : new Sequelize(DATABASE_URL, {
@@ -38,7 +38,7 @@ module.exports = {
   RMBG_KEY: process.env.RMBG_KEY || 'null',
   BAILEYS_LOG_LVL: process.env.BAILEYS_LOG_LVL || 'silent',
   LANG: (process.env.LANGUAG || 'en').toLowerCase(),
-  WARN_LIMIT: process.env.WARN_LIMIT || 3,
+  WARN_LIMIT: process.env.WARN_LIMIT || 2,
   FORCE_LOGOUT: toBool(process.env.FORCE_LOGOUT),
   BRAINSHOP: process.env.BRAINSHOP || '159501,6pq8dPiYt7PdqHz3',
   DIS_BOT: process.env.DISABLE_BOT || 'null',
